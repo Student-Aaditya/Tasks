@@ -1,4 +1,3 @@
-// src/Pages/AdminCreate.jsx
 import React, { useState } from "react";
 import axios from "axios";
 
@@ -8,13 +7,12 @@ const AdminCreate = () => {
     username: "",
     password: "",
     role: "admin",
-    created_by: "", // optional: could be superAdmin id
+    created_by: "", 
   });
 
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
-  // Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -25,18 +23,17 @@ const AdminCreate = () => {
     setError("");
 
     try {
-        const token = localStorage.getItem("token"); // get token from login
+        const token = localStorage.getItem("token"); 
 
       const res = await axios.post("http://localhost:7069/superAdmin/api/admins", formData,{
          
     headers: {
-      Authorization: `Bearer ${token}` // your JWT token from login
+      Authorization: `Bearer ${token}` 
     }
       }); 
       setMessage(res.data.message);
-    //   setFormData({ name: "", username: "", password: "", role: "admin", created_by: "" });
     } catch (err) {
-      setError(err.response?.data?.error || "Something went wrong");
+      setError(err|| "Something went wrong");
     }
   };
 

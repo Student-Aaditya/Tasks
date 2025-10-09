@@ -20,7 +20,7 @@ function VendorProfile() {
 
         setData(res.data);
       } catch (err) {
-        console.log("Error fetching profile:", err.response?.data || err.message);
+        console.log("Error fetching profile:", err || err.message);
       } finally {
         setLoading(false);
       }

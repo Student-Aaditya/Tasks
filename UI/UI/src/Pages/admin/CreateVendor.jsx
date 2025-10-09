@@ -47,7 +47,7 @@ const CreateVendor = () => {
             setFormData({ name: "", username: "", password: "", role: "manager", created_by: "" });
         } catch (err) {
             console.error(err);
-            setError(err.response?.data?.error || "Something went wrong");
+            setError(err || "Something went wrong");
         }
     };
 

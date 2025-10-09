@@ -10,7 +10,6 @@ function UpdateManager() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Fetch current profile
   useEffect(() => {
     async function fetchProfile() {
       try {
@@ -36,12 +35,10 @@ function UpdateManager() {
     fetchProfile();
   }, []);
 
-  // Handle form input
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle profile update
   const handleUpdate = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -63,7 +60,7 @@ function UpdateManager() {
 
       setMessage(res.data.msg || "Profile updated successfully!");
     } catch (err) {
-      setMessage(err.response?.data?.msg || "Update failed");
+      setMessage(err || "Update failed");
     } finally {
       setLoading(false);
     }

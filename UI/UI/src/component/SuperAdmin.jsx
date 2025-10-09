@@ -1,15 +1,7 @@
-// src/Pages/SuperAdmin.jsx
 import React from "react";
-import { Outlet, Link, useNavigate } from "react-router-dom";
+import { Outlet, Link, } from "react-router-dom";
 
 const SuperAdmin = () => {
-//   const navigate = useNavigate();
-
-//   const handleLogout = () => {
-//     localStorage.removeItem("token");
-//     localStorage.removeItem("user");
-//     // navigate("/");
-//   };
 
   return (
     <div>
@@ -37,16 +29,7 @@ const SuperAdmin = () => {
             logout
           </Link>
         </div>
-
-        {/* <button
-          onClick={handleLogout}
-          className="bg-red-500 hover:bg-red-600 px-4 py-1 rounded"
-        >
-          Logout
-        </button> */}
       </nav>
-
-      {/* Main content */}
       <div className="p-6">
         <Outlet />
       </div>

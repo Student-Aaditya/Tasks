@@ -54,24 +54,18 @@ function App() {
           </Route>
         </Route>
 
-
-
         {/* manager */}
         <Route path="/manager" element={<Manager />}>
-      <Route path="managerprofile" element={<ManagerProfile />}>
+          <Route path="managerprofile" element={<ManagerProfile />}>
           </Route>
-
           <Route path="managerProfileUpdate" element={<UpdateManager />}>
           </Route>
-
         </Route>
 
         {/* vendor */}
         <Route path="/vendor" element={<Vendor />}>
-
           <Route path="vendorprofile" element={<VendorProfile />}>
           </Route>
-
           <Route path="profileUpdate" element={<VendorUpdate />}>
           </Route>
         </Route>

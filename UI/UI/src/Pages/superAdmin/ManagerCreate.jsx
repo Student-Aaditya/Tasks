@@ -1,4 +1,3 @@
-// src/Pages/ManagerCreate.jsx
 import React, { useState } from "react";
 import axios from "axios";
 
@@ -31,10 +30,10 @@ const ManagerCreate = () => {
     }
 
     try {
-              const token = localStorage.getItem("token"); // get token from login
+              const token = localStorage.getItem("token");
 
       const res = await axios.post(
-        "http://localhost:7069/superAdmin/api/manager", // make sure this route exists in backend
+        "http://localhost:7069/superAdmin/api/manager", 
         formData,
         {
           headers: {
@@ -47,7 +46,7 @@ const ManagerCreate = () => {
       setFormData({ name: "", username: "", password: "", role: "manager", created_by: "" });
     } catch (err) {
       console.error(err);
-      setError(err.response?.data?.error || "Something went wrong");
+      setError(err || "Something went wrong");
     }
   };
 

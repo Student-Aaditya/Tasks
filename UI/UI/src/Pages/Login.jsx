@@ -63,7 +63,7 @@ const Login = () => {
       }
     } catch (err) {
       console.error("Login error:", err.response?.data || err);
-      alert(err.response?.data?.msg || "Invalid login credentials");
+      alert(err || "Invalid login credentials");
     }
   };
 
