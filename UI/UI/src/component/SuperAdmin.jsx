@@ -25,6 +25,9 @@ const SuperAdmin = () => {
           <Link to="vendorList" className="hover:underline">
             Vendor List
           </Link>
+          <Link to="medicProduct" className="hover:underline">
+            Medic Product
+          </Link>
            <Link to="/" className="hover:underline ml-30">
             logout
           </Link>
