@@ -1,5 +1,5 @@
-import React from 'react'
 import Button from '@mui/material/Button';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 
 function MedicineCard() {
     return (
@@ -25,27 +25,27 @@ function MedicineCard() {
         <>
             <h1>Card Details</h1>
 
-            <div className="main flex flex-wrap h-60 w-170 border-2 ">
-                <div className="image border-2 bg-sky-600 h-48 w-78 m-1">
+            <div className="main flex flex-wrap h-54 w-155 border-2 ">
+                <div className="image border-2 bg-sky-600 h-48 w-70 m-1">
                     <img src="/medic.jpg" alt="" />
                 </div>
-                <div className="detail  h-54 w-78 m-1 grid ">
+                <div className="detail  h-54 w-70 m-1 grid ">
                     <div className="div1  w-78 ">
                         <h1>Bucket One</h1>
-                        <Button variant='outlined' color="success">View Card</Button>
+                  <Link to="/Product" > View Card</Link> <Outlet/>
                     </div>
-                    <div className="div2  w-78  ">
-                        <select name="vendor" id="vendor" className='border-1'>
+                    <div className="div2  w-78 m-2  ">
+                        <select name="vendor" id="vendor" className='border-1 '>
                             <option value="1">Suraj</option>
                             <option value="2">Bharat</option>
                             <option value="3">Tushar</option>
                             <option value="4">Pinki</option>
                         </select>
-
-                        <Button variant='outlined' color='warning' className='gap-1'>SEND</Button>
+                        <Button variant='outlined' color='warning' >SEND</Button>
                     </div>
                 </div>
             </div>
+           
         </>
     )
 }

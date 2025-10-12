@@ -25,7 +25,6 @@ function Product() {
 
   return (
     <>
-    
       <h1>Medicine Card</h1>
       <div className='flex flex-wrap'>
       <div className='h-auto w-80 rounded-2xl bg-white shadow-lg shadow-yellow-400/40 m-5 border border-gray-300'>

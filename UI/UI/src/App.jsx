@@ -20,6 +20,7 @@ import VendorUpdate from './Pages/vendor/VendorUpdate'
 import ManagerProfile from './Pages/manager/ManagerProfile'
 import UpdateManager from './Pages/manager/UpdateManager'
 import MedicineCard from './Pages/superAdmin/MedicineCard'
+import Product from './Reusable/Product'
 
 function App() {
 
@@ -42,9 +43,14 @@ function App() {
           <Route path="vendorList" element={<VendorList />}>
           </Route>
           <Route path="medicProduct" element={<MedicineCard />}>
+
           </Route>
+
         </Route>
 
+        <Route path="/Product" element={<Product />}>
+        </Route>
+        
         {/* admin */}
         <Route path="/admin" element={<Admin />}>
           <Route path="createManager" element={<CreateManager />}>
