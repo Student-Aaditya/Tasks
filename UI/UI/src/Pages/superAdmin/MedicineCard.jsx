@@ -7,10 +7,10 @@ function MedicineCard() {
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold text-gray-800">Card Details</h1>
         <Link
-          to="/Input"
+          to="/bucket"
           className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-md"
         >
-          ADD MEDICINE CARD
+          ADD Bucket CARD
         </Link>
       </div>
 

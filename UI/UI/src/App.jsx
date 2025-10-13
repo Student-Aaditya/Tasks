@@ -22,6 +22,7 @@ import UpdateManager from './Pages/manager/UpdateManager'
 import MedicineCard from './Pages/superAdmin/MedicineCard'
 import Product from './Reusable/Product'
 import Input from './Reusable/Input'
+import AddBucket from './Reusable/AddBucket'
 function App() {
 
   return (
@@ -51,6 +52,9 @@ function App() {
         <Route path="/Product" element={<Product />}>
         </Route>
                 <Route path="/Input" element={<Input />}>
+        </Route>
+
+         <Route path="/bucket" element={<AddBucket />}>
         </Route>
 
         {/* admin */}
