@@ -22,6 +22,16 @@ const bucketController={
         });
         })   
 
+    },
+    getBucket:async(req,res)=>{
+        const sql="SELECT * FROM BUCKET";
+        con.query(sql,(err,result)=>{
+            if(err){
+               return res.status(500).json({error:"Database Error"});
+            }
+
+            return res.status(200).json(result);
+        })
     }
 }
 module.exports=bucketController;
