@@ -227,7 +227,7 @@ function Input() {
 
         {/* Image */}
         <input
-          type="text"
+          type="file"
           name="image"
           placeholder="Image File Name or URL"
           value={formData.image}

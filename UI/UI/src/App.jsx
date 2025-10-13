@@ -21,7 +21,7 @@ import ManagerProfile from './Pages/manager/ManagerProfile'
 import UpdateManager from './Pages/manager/UpdateManager'
 import MedicineCard from './Pages/superAdmin/MedicineCard'
 import Product from './Reusable/Product'
-
+import Input from './Reusable/Input'
 function App() {
 
   return (
@@ -50,7 +50,9 @@ function App() {
 
         <Route path="/Product" element={<Product />}>
         </Route>
-        
+                <Route path="/Input" element={<Input />}>
+        </Route>
+
         {/* admin */}
         <Route path="/admin" element={<Admin />}>
           <Route path="createManager" element={<CreateManager />}>
