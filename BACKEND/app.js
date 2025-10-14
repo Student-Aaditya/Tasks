@@ -8,6 +8,7 @@ const manager = require("./Routes/managerRoutes.js");
 const bodyparser = require("body-parser");
 const login = require("./Routes/loginRoutes.js");
 const Bucket=require("./Routes/bucketRoutes.js");
+const Medicine=require("./Routes/medicineRoutes.js");
 const cors = require("cors");
 
 app.use(bodyparser.json());
@@ -24,6 +25,8 @@ app.use("/superAdmin", super_admin);
 app.use("/vendor", vendor);
 app.use("/manager", manager);
 app.use("/bucket",Bucket);
+app.use("/medicine",Medicine);
+
 
 
 app.listen(port, () => {

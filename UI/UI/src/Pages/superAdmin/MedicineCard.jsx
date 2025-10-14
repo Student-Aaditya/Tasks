@@ -11,7 +11,7 @@ function MedicineCard() {
       try {
         const res = await axios.get("http://127.0.0.1:7069/bucket/getbucket");
         setbucket(res.data);
-        
+
         console.log(res.data);
       } catch (err) {
         console.log(err);
@@ -23,10 +23,10 @@ function MedicineCard() {
   return (
     <>
 
-    <div className="flex justify-between items-center mb-6">
-       <h1 className="text-2xl font-bold text-gray-800">Card Details</h1>
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-2xl font-bold text-gray-800">Card Details</h1>
         <Link to="/bucket" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-md" >
-         ADD Bucket CARD </Link> </div>
+          ADD Bucket CARD </Link> </div>
       <div className="flex flex-wrap ">
 
         {bucket.map((item, index) => (
@@ -50,15 +50,15 @@ function MedicineCard() {
                   {item.name}
                 </h2>
                 <Link
-                  to="/Product"
+                  to={`/Product/${item.id}`}
                   className="text-blue-600 hover:underline mt-1 inline-block"
                 >
                   View Card
                 </Link>
 
-                  <Link
-                  to="/Product"
-                  className="text-blue-600 hover:underline mt-1 inline-block"
+                <Link
+                  to={`/Input/${item.id}`}
+                  className="text-blue-600 hover:underline mt-1 ml-2 inline-block"
                 >
                   Add Medicine Card
                 </Link>

@@ -49,9 +49,9 @@ function App() {
 
         </Route>
 
-        <Route path="/Product" element={<Product />}>
+        <Route path="/Product/:id" element={<Product />}>
         </Route>
-                <Route path="/Input" element={<Input />}>
+                <Route path="/Input/:id" element={<Input />}>
         </Route>
 
          <Route path="/bucket" element={<AddBucket />}>

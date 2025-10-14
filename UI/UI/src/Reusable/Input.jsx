@@ -1,6 +1,13 @@
 import React, { useState } from "react";
+import { useParams } from 'react-router-dom';
+import axios from "axios";
+
 
 function Input() {
+  const {id}=useParams();
+    console.log("bucket id",id);
+
+
   const [formData, setFormData] = useState({
     id: "",
     name: "",
@@ -31,11 +38,23 @@ function Input() {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submitted Data:", formData);
-    alert("Form Submitted! Check console.");
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  
+  const finalData = {
+    ...formData,
+    bucket_id: id,  
   };
+
+  try {
+    const res = await axios.post("http://127.0.0.1:7069/medicine/addmedicine", finalData);
+    console.log("Response:", res.data);
+    alert("Medicine Added Successfully!");
+  } catch (err) {
+    console.error(err);
+    alert("Failed to add medicine");
+  }
+};
 
   return (
     <div className="p-6 max-w-2xl mx-auto bg-white shadow-lg rounded-lg">
@@ -227,7 +246,7 @@ function Input() {
 
         {/* Image */}
         <input
-          type="file"
+          type="text"
           name="image"
           placeholder="Image File Name or URL"
           value={formData.image}
