@@ -20,12 +20,13 @@ const medicineController = {
             country_of_origin,
             manufacture_address,
             best_price,
-            brought,
-            image
+            brought
         } = req.body;
 
+        const imageUrl = req.file?.path || null;
+
         const value=[bucket_id,name,salt_composition,manufacturers,medicine_type,packaging,packaging_typ,mrp,cost_price,discount_percent,selling_price,offers_percent,prescription_required
-            ,storage,country_of_origin,manufacture_address,best_price,brought,image]
+            ,storage,country_of_origin,manufacture_address,best_price,brought, JSON.stringify(imageUrl)]
 
         if (!bucket_id || !name) {
             return res.status(400).json({ message: "Bucket ID and Medicine Name are required" });
@@ -40,6 +41,7 @@ const medicineController = {
 
             return res.status(201).json({
                 msg:"Medicine list created successful",
+                images:imageUrl,
                 userId: result.insertId
             })
         })

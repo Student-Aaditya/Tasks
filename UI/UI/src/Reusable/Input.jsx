@@ -40,21 +40,39 @@ function Input() {
 
   const handleSubmit = async (e) => {
   e.preventDefault();
-  
-  const finalData = {
-    ...formData,
-    bucket_id: id,  
-  };
+
+  const formDataToSend = new FormData();
+
+  for (const key in formData) {
+    if (key !== "images") {
+      formDataToSend.append(key, formData[key]);
+    }
+  }
+
+  formDataToSend.append("bucket_id", id);
+
+  if (formData.image && formData.image.length > 0) {
+    Array.from(formData.image).forEach((file) => {
+      formDataToSend.append("images", file);
+    });
+  }
 
   try {
-    const res = await axios.post("http://127.0.0.1:7069/medicine/addmedicine", finalData);
-    console.log("Response:", res.data);
+    const res = await axios.post(
+      "http://127.0.0.1:7069/medicine/addmedicine",
+      formDataToSend,
+      {
+        headers: { "Content-Type": "multipart/form-data" },
+      }
+    );
     alert("Medicine Added Successfully!");
+    console.log(res.data);
   } catch (err) {
     console.error(err);
     alert("Failed to add medicine");
   }
 };
+
 
   return (
     <div className="p-6 max-w-2xl mx-auto bg-white shadow-lg rounded-lg">
@@ -246,7 +264,7 @@ function Input() {
 
         {/* Image */}
         <input
-          type="text"
+          type="file" multiple
           name="image"
           placeholder="Image File Name or URL"
           value={formData.image}
