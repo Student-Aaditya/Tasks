@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-  
+
 function Product() {
     const [medicines, setMedicines] = useState([]);
-    const { id } = useParams(); 
+    const { id } = useParams();
     console.log("Bucket ID:", id);
 
     useEffect(() => {
@@ -28,13 +28,18 @@ function Product() {
                     medicines.map((medicine) => (
                         <div
                             key={medicine.id}
-                            className='h-auto w-80 rounded-2xl bg-white shadow-lg shadow-yellow-400/40 m-5 border border-gray-300'
+                            className='h-auto w-99 rounded-2xl bg-white shadow-lg shadow-yellow-400/40 m-5 border border-gray-300'
                         >
-                            <img
-                                src={medicine.image || "/medic.jpg"}
-                                alt={medicine.name}
-                                className='w-full rounded-xl h-48 object-cover hover:shadow-xl/30'
-                            />
+                            <div className='flex  space-x-1 p-2'>
+                                {(medicine.images || []).map((img, index) => (
+                                    <img
+                                        key={index}
+                                        src={img || "/medic.jpg"}
+                                        alt={`${medicine.name} ${index + 1}`}
+                                        className='w-1/3 h-24 object-cover rounded-xl hover:shadow-xl/30'
+                                    />
+                                ))}
+                            </div>
                             <div className='p-4'>
                                 <h2 className='text-xl font-bold'>{medicine.name}</h2>
                                 <p className='text-sm text-gray-700 mt-1'>
